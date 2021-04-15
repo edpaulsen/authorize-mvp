@@ -51,7 +51,7 @@ type Order
         operations: [read, create, update, delete]
       }
       { allow: private, operations: [create, read, update, delete] }
-      { allow: public, provider: iam, operations: [read, create] }
+      { allow: public, provider: iam, operations: [read] }
     ]
   ) {
   id: ID!
@@ -70,7 +70,7 @@ type OrderProducts
         operations: [read, create, update, delete]
       }
       { allow: private, operations: [create, read, update, delete] }
-      { allow: public, provider: iam, operations: [read, create] }
+      { allow: public, provider: iam, operations: [read] }
     ]
   )
   @key(name: "byProduct", fields: ["productId", "orderId"])
@@ -87,7 +87,10 @@ enum OrderStatusEnum {
   FAILED
 }
 
-type ModelOrderProductsConnection @aws_iam @aws_cognito_user_pools {
+type ModelOrderProductsConnection
+  @aws_iam
+  @aws_api_key
+  @aws_cognito_user_pools {
   items: [OrderProducts]
   nextToken: String
 }

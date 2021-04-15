@@ -168,6 +168,47 @@
 				}
 			}
 		},
+		"GetSecretKeyPolicy": {
+			"DependsOn": [
+				"LambdaExecutionRole"
+			],
+			"Type": "AWS::IAM::Policy",
+			"Properties": {
+				"PolicyName": "lambda-secret-key-policy",
+				"Roles": [
+					{
+						"Ref": "LambdaExecutionRole"
+					}
+				],
+				"PolicyDocument": {
+					"Version": "2012-10-17",
+					"Statement": [
+						{
+							"Effect": "Allow",
+							"Action": [
+								"secretsmanager:GetSecretValue"
+							],
+							"Resource": {
+								"Fn::Sub": [
+									"arn:aws:secretsmanager:${region}:${account}:secret:AX73_API_KEY_${env}-??????",
+									{
+										"region": {
+											"Ref": "AWS::Region"
+										},
+										"account": {
+											"Ref": "AWS::AccountId"
+										},
+										"env": {
+											"Ref": "env"
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			}
+		},
 		"AmplifyResourcesPolicy": {
 			"DependsOn": [
 				"LambdaExecutionRole"
