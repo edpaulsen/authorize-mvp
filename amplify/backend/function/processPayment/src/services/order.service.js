@@ -3,12 +3,12 @@ const { execute } = require("../helpers/api.helper");
 const uuid = require("uuid");
 const Amplify = require("aws-amplify");
 
-const init = () => {
+const init = (key) => {
   const myAppConfig = {
     aws_appsync_graphqlEndpoint:
       process.env.API_AUTHORIZEMVP_GRAPHQLAPIENDPOINTOUTPUT,
     aws_appsync_region: process.env.REGION,
-    aws_appsync_apiKey: "da2-vvedh6ivdff2bobb2l5slsnpwi",
+    aws_appsync_apiKey: key,
   };
   Amplify.API.configure(myAppConfig);
 };

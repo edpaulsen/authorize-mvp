@@ -6,7 +6,8 @@
   "license": "Apache-2.0",
   "dependencies": {
     "authorizenet": "^1.0.8",
-    "aws-amplify": "^3.3.8",
+    "aws-amplify": "^2.2.2",
+    "aws-sdk": "^2.619.0",
     "uuid": "^8.3.2"
   }
 }

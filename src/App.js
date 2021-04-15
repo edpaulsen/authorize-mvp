@@ -8,23 +8,30 @@ import NavbarContainer from "./containers/Navbar/Navbar";
 import { IconContext } from "react-icons";
 import ProductsContextContainer from "./context/Products/ProductsContextContainer";
 import CartContextContainer from "./context/Cart/CartContextContainer";
+import AuthContextContainer from "./context/Auth/AuthContextContainer";
+
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 Amplify.configure(awsConfig);
 
 function App() {
   return (
     <BrowserRouter>
-      <ProductsContextContainer>
-        <CartContextContainer>
-          <IconContext.Provider value={{ className: "icons" }}>
-            <div id="site-root">
-              <NavbarContainer>
-                <Routes />
-              </NavbarContainer>
-            </div>
-          </IconContext.Provider>
-        </CartContextContainer>
-      </ProductsContextContainer>
+      <AuthContextContainer>
+        <ProductsContextContainer>
+          <CartContextContainer>
+            <IconContext.Provider value={{ className: "icons" }}>
+              <div id="site-root">
+                <ToastContainer />
+                <NavbarContainer>
+                  <Routes />
+                </NavbarContainer>
+              </div>
+            </IconContext.Provider>
+          </CartContextContainer>
+        </ProductsContextContainer>
+      </AuthContextContainer>
     </BrowserRouter>
   );
 }
