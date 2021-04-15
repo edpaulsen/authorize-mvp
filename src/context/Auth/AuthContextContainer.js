@@ -7,11 +7,27 @@ const AuthContextContainer = ({ children }) => {
 
   useEffect(() => {
     let fetchUser = async () => {
-      await Auth.currentAuthenticatedUser();
+      try {
+        await Auth.currentAuthenticatedUser();
+        setUser(getCurrentUser());
+      } catch (error) {
+        console.log("error in fetching user");
+      }
     };
-    Hub.listen("auth", fetchUser);
+    Hub.listen("auth", ({ payload }) => {
+      switch (payload.event) {
+        case "signIn":
+          fetchUser();
+          break;
+        case "signOut":
+          setUser({});
+          break;
+        default:
+          break;
+      }
+    });
     fetchUser();
-  });
+  }, []);
 
   const checkAuthentication = () => {
     return !!Auth.user;
@@ -21,12 +37,17 @@ const AuthContextContainer = ({ children }) => {
     return Auth.user;
   };
 
+  const logOut = () => {
+    Auth.signOut();
+  };
+
   return (
     <AuthContextProvider
       value={{
         user,
         checkAuthentication,
         getCurrentUser,
+        logOut,
       }}
     >
       {children}

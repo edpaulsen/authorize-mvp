@@ -2,21 +2,41 @@
 	"AWSTemplateFormatVersion": "2010-09-09",
 	"Description": "Lambda resource stack creation using Amplify CLI",
 	"Parameters": {
-		"CloudWatchRule": {
+		"GROUP": {
 			"Type": "String",
-			"Default": "NONE",
-			"Description": " Schedule Expression"
+			"Default": ""
+		},
+		"modules": {
+			"Type": "String",
+			"Default": "",
+			"Description": "Comma-delimmited list of modules to be executed by a lambda trigger. Sent to resource as an env variable."
+		},
+		"resourceName": {
+			"Type": "String",
+			"Default": ""
+		},
+		"trigger": {
+			"Type": "String",
+			"Default": "true"
+		},
+		"functionName": {
+			"Type": "String",
+			"Default": ""
+		},
+		"roleName": {
+			"Type": "String",
+			"Default": ""
+		},
+		"parentResource": {
+			"Type": "String",
+			"Default": ""
+		},
+		"parentStack": {
+			"Type": "String",
+			"Default": ""
 		},
 		"env": {
 			"Type": "String"
-		},
-		"apiauthorizemvpGraphQLAPIIdOutput": {
-			"Type": "String",
-			"Default": "apiauthorizemvpGraphQLAPIIdOutput"
-		},
-		"apiauthorizemvpGraphQLAPIEndpointOutput": {
-			"Type": "String",
-			"Default": "apiauthorizemvpGraphQLAPIEndpointOutput"
 		}
 	},
 	"Conditions": {
@@ -41,12 +61,12 @@
 				"FunctionName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"processPayment",
+						"authorizemvp9a61d0a0PostConfirmation",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"processPayment",
+									"authorizemvp9a61d0a0PostConfirmation",
 									"-",
 									{
 										"Ref": "env"
@@ -61,14 +81,14 @@
 						"ENV": {
 							"Ref": "env"
 						},
+						"MODULES": {
+							"Ref": "modules"
+						},
 						"REGION": {
 							"Ref": "AWS::Region"
 						},
-						"API_AUTHORIZEMVP_GRAPHQLAPIIDOUTPUT": {
-							"Ref": "apiauthorizemvpGraphQLAPIIdOutput"
-						},
-						"API_AUTHORIZEMVP_GRAPHQLAPIENDPOINTOUTPUT": {
-							"Ref": "apiauthorizemvpGraphQLAPIEndpointOutput"
+						"GROUP": {
+							"Ref": "GROUP"
 						}
 					}
 				},
@@ -78,11 +98,11 @@
 						"Arn"
 					]
 				},
-				"Runtime": "nodejs12.x",
+				"Runtime": "nodejs10.x",
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-authorizemvp-dev-121345-deployment",
-					"S3Key": "amplify-builds/processPayment-425535596d6b30424573-build.zip"
+					"S3Key": "amplify-builds/authorizemvp9a61d0a0PostConfirmation-4b6c7a62656852397357-build.zip"
 				}
 			}
 		},
@@ -92,12 +112,12 @@
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"authorizemvpLambdaRolec40e5c59",
+						"authorizemvp9a61d0a0PostConfirmation",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"authorizemvpLambdaRolec40e5c59",
+									"authorizemvp9a61d0a0PostConfirmation",
 									"-",
 									{
 										"Ref": "env"
@@ -163,99 +183,16 @@
 									}
 								]
 							}
-						}
-					]
-				}
-			}
-		},
-		"GetSecretKeyPolicy": {
-			"DependsOn": [
-				"LambdaExecutionRole"
-			],
-			"Type": "AWS::IAM::Policy",
-			"Properties": {
-				"PolicyName": "lambda-secret-key-policy",
-				"Roles": [
-					{
-						"Ref": "LambdaExecutionRole"
-					}
-				],
-				"PolicyDocument": {
-					"Version": "2012-10-17",
-					"Statement": [
+						},
 						{
+							"Sid": "lambdainvokepolicy",
 							"Effect": "Allow",
 							"Action": [
-								"secretsmanager:GetSecretValue"
-							],
-							"Resource": {
-								"Fn::Sub": [
-									"arn:aws:secretsmanager:${region}:${account}:secret:AX73_API_KEY_${env}-??????",
-									{
-										"region": {
-											"Ref": "AWS::Region"
-										},
-										"account": {
-											"Ref": "AWS::AccountId"
-										},
-										"env": {
-											"Ref": "env"
-										}
-									}
-								]
-							}
-						}
-					]
-				}
-			}
-		},
-		"AmplifyResourcesPolicy": {
-			"DependsOn": [
-				"LambdaExecutionRole"
-			],
-			"Type": "AWS::IAM::Policy",
-			"Properties": {
-				"PolicyName": "amplify-lambda-execution-policy",
-				"Roles": [
-					{
-						"Ref": "LambdaExecutionRole"
-					}
-				],
-				"PolicyDocument": {
-					"Version": "2012-10-17",
-					"Statement": [
-						{
-							"Effect": "Allow",
-							"Action": [
-								"appsync:Create*",
-								"appsync:StartSchemaCreation",
-								"appsync:GraphQL",
-								"appsync:Get*",
-								"appsync:List*",
-								"appsync:Update*",
-								"appsync:Delete*"
+								"lambda:InvokeFunction",
+								"lambda:InvokeAsync"
 							],
 							"Resource": [
-								{
-									"Fn::Join": [
-										"",
-										[
-											"arn:aws:appsync:",
-											{
-												"Ref": "AWS::Region"
-											},
-											":",
-											{
-												"Ref": "AWS::AccountId"
-											},
-											":apis/",
-											{
-												"Ref": "apiauthorizemvpGraphQLAPIIdOutput"
-											},
-											"/*"
-										]
-									]
-								}
+								"*"
 							]
 						}
 					]
@@ -277,14 +214,14 @@
 				]
 			}
 		},
-		"Region": {
-			"Value": {
-				"Ref": "AWS::Region"
-			}
-		},
 		"LambdaExecutionRole": {
 			"Value": {
 				"Ref": "LambdaExecutionRole"
+			}
+		},
+		"Region": {
+			"Value": {
+				"Ref": "AWS::Region"
 			}
 		}
 	}

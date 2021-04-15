@@ -3,6 +3,7 @@ import { withRouter } from "react-router";
 import ProductDetail from "../../components/ProductDetail/ProductDetail";
 import { getProduct } from "../../context/Products/Products.service";
 import { CartContext } from "../../context/Cart/CartContext";
+import { showToast } from "../../utils/common";
 
 const ProductDetailsContainer = ({ match }) => {
   const { id: productId } = match.params;
@@ -23,6 +24,7 @@ const ProductDetailsContainer = ({ match }) => {
   const addToCartProduct = (product, quantity) => {
     if (quantity) {
       cartContext.addItemToCart(product, quantity);
+      showToast("Product added to cart.");
     }
   };
 

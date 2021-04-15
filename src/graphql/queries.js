@@ -1,6 +1,41 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getUser = /* GraphQL */ `
+  query GetUser($id: ID!) {
+    getUser(id: $id) {
+      id
+      email
+      orders {
+        items {
+          id
+          status
+          price
+          userId
+        }
+        nextToken
+      }
+    }
+  }
+`;
+export const listUsers = /* GraphQL */ `
+  query ListUsers(
+    $filter: ModelUserFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        email
+        orders {
+          nextToken
+        }
+      }
+      nextToken
+    }
+  }
+`;
 export const listProductss = /* GraphQL */ `
   query ListProductss(
     $filter: ModelProductsFilterInput
@@ -64,6 +99,7 @@ export const listOrders = /* GraphQL */ `
         id
         status
         price
+        userId
         products {
           nextToken
         }
@@ -78,6 +114,7 @@ export const getOrder = /* GraphQL */ `
       id
       status
       price
+      userId
       products {
         items {
           id
@@ -86,6 +123,34 @@ export const getOrder = /* GraphQL */ `
         }
         nextToken
       }
+    }
+  }
+`;
+export const orderByUserId = /* GraphQL */ `
+  query OrderByUserId(
+    $userId: ID
+    $sortDirection: ModelSortDirection
+    $filter: ModelOrderFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    orderByUserId(
+      userId: $userId
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        status
+        price
+        userId
+        products {
+          nextToken
+        }
+      }
+      nextToken
     }
   }
 `;

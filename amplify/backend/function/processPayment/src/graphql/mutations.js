@@ -20,6 +20,7 @@ const createOrder = /* GraphQL */ `
       id
       status
       price
+      userId
     }
   }
 `;

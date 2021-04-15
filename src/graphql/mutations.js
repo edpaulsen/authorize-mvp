@@ -14,6 +14,66 @@ export const processPayment = /* GraphQL */ `
     )
   }
 `;
+export const createUser = /* GraphQL */ `
+  mutation CreateUser(
+    $input: CreateUserInput!
+    $condition: ModelUserConditionInput
+  ) {
+    createUser(input: $input, condition: $condition) {
+      id
+      email
+      orders {
+        items {
+          id
+          status
+          price
+          userId
+        }
+        nextToken
+      }
+    }
+  }
+`;
+export const updateUser = /* GraphQL */ `
+  mutation UpdateUser(
+    $input: UpdateUserInput!
+    $condition: ModelUserConditionInput
+  ) {
+    updateUser(input: $input, condition: $condition) {
+      id
+      email
+      orders {
+        items {
+          id
+          status
+          price
+          userId
+        }
+        nextToken
+      }
+    }
+  }
+`;
+export const deleteUser = /* GraphQL */ `
+  mutation DeleteUser(
+    $input: DeleteUserInput!
+    $condition: ModelUserConditionInput
+  ) {
+    deleteUser(input: $input, condition: $condition) {
+      id
+      email
+      orders {
+        items {
+          id
+          status
+          price
+          userId
+        }
+        nextToken
+      }
+    }
+  }
+`;
 export const createProducts = /* GraphQL */ `
   mutation CreateProducts(
     $input: CreateProductsInput!
@@ -107,6 +167,7 @@ export const createOrder = /* GraphQL */ `
       id
       status
       price
+      userId
       products {
         items {
           id
@@ -127,6 +188,7 @@ export const updateOrder = /* GraphQL */ `
       id
       status
       price
+      userId
       products {
         items {
           id
@@ -147,6 +209,7 @@ export const deleteOrder = /* GraphQL */ `
       id
       status
       price
+      userId
       products {
         items {
           id
@@ -187,6 +250,7 @@ export const createOrderProducts = /* GraphQL */ `
         id
         status
         price
+        userId
         products {
           nextToken
         }
@@ -223,6 +287,7 @@ export const updateOrderProducts = /* GraphQL */ `
         id
         status
         price
+        userId
         products {
           nextToken
         }
@@ -259,6 +324,7 @@ export const deleteOrderProducts = /* GraphQL */ `
         id
         status
         price
+        userId
         products {
           nextToken
         }

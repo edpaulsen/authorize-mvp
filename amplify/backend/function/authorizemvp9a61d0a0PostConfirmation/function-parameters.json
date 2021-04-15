@@ -1,0 +1,16 @@
+{
+    "trigger": true,
+    "modules": [
+        "add-to-group"
+    ],
+    "parentResource": "authorizemvp9a61d0a0",
+    "functionName": "authorizemvp9a61d0a0PostConfirmation",
+    "resourceName": "authorizemvp9a61d0a0PostConfirmation",
+    "parentStack": "auth",
+    "triggerEnvs": [],
+    "triggerDir": "/Users/usman/.nvm/versions/node/v12.17.0/lib/node_modules/@aws-amplify/cli/node_modules/amplify-category-auth/provider-utils/awscloudformation/utils/../triggers/PostConfirmation",
+    "triggerTemplate": "PostConfirmation.json.ejs",
+    "roleName": "authorizemvp9a61d0a0PostConfirmation",
+    "skipEdit": true,
+    "GROUP": "Admin"
+}

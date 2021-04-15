@@ -31,8 +31,17 @@
   position: relative;
 }
 
-.right-nav-links a {
+.right-nav-links a,
+button {
   margin-right: 10px;
+}
+
+.right-nav-links button {
+  border: none;
+  color: var(--primary-color);
+  background-color: white;
+  cursor: pointer;
+  outline: none;
 }
 
 .right-nav-links span {

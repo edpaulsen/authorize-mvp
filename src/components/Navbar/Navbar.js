@@ -2,10 +2,15 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/images/authorize-logo.png";
 import styles from "./Navbar.module.css";
-import { ROUTE_HOME, ROUTE_SHOP } from "../../utils/constants";
+import { ROUTE_HOME, ROUTE_LOGIN, ROUTE_SHOP } from "../../utils/constants";
 import { MdShoppingCart } from "react-icons/md";
 
-export default function Navbar({ totalItemsInCart, orderHandler }) {
+export default function Navbar({
+  totalItemsInCart,
+  orderHandler,
+  isLoggedIn,
+  logoutHandler,
+}) {
   return (
     <div className={`${styles["container"]}`}>
       <img src={logo} alt="logo here" width="140px" height="120" />
@@ -21,7 +26,12 @@ export default function Navbar({ totalItemsInCart, orderHandler }) {
           <NavLink to={ROUTE_SHOP}>Shop</NavLink>
         </div>
         <div className={`${styles["right-nav-links"]}`}>
-          <a>Log In</a>
+          {!isLoggedIn && (
+            <NavLink className="cursor-pointer" to={ROUTE_LOGIN}>
+              Log In
+            </NavLink>
+          )}
+          {isLoggedIn && <button onClick={logoutHandler}>Log Out</button>}
           <MdShoppingCart className={`cursor-pointer`} onClick={orderHandler} />
           <span>{totalItemsInCart}</span>
         </div>

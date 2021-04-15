@@ -1,7 +1,12 @@
 import { processPayment } from "../../graphql/mutations";
 import { execute } from "../../Api.service";
 
-export const processOrderPayment = async (cardInfo, amount, productIds) => {
+export const processOrderPayment = async (
+  cardInfo,
+  amount,
+  productIds,
+  userId
+) => {
   await execute(
     {
       statement: processPayment,
@@ -11,6 +16,7 @@ export const processOrderPayment = async (cardInfo, amount, productIds) => {
       cardInfo,
       amount,
       productIds,
+      userId,
     }
   );
 };

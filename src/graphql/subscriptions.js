@@ -1,6 +1,57 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onCreateUser = /* GraphQL */ `
+  subscription OnCreateUser {
+    onCreateUser {
+      id
+      email
+      orders {
+        items {
+          id
+          status
+          price
+          userId
+        }
+        nextToken
+      }
+    }
+  }
+`;
+export const onUpdateUser = /* GraphQL */ `
+  subscription OnUpdateUser {
+    onUpdateUser {
+      id
+      email
+      orders {
+        items {
+          id
+          status
+          price
+          userId
+        }
+        nextToken
+      }
+    }
+  }
+`;
+export const onDeleteUser = /* GraphQL */ `
+  subscription OnDeleteUser {
+    onDeleteUser {
+      id
+      email
+      orders {
+        items {
+          id
+          status
+          price
+          userId
+        }
+        nextToken
+      }
+    }
+  }
+`;
 export const onCreateProducts = /* GraphQL */ `
   subscription OnCreateProducts {
     onCreateProducts {
@@ -82,6 +133,7 @@ export const onCreateOrder = /* GraphQL */ `
       id
       status
       price
+      userId
       products {
         items {
           id
@@ -99,6 +151,7 @@ export const onUpdateOrder = /* GraphQL */ `
       id
       status
       price
+      userId
       products {
         items {
           id
@@ -116,6 +169,7 @@ export const onDeleteOrder = /* GraphQL */ `
       id
       status
       price
+      userId
       products {
         items {
           id
@@ -153,6 +207,7 @@ export const onCreateOrderProducts = /* GraphQL */ `
         id
         status
         price
+        userId
         products {
           nextToken
         }
@@ -186,6 +241,7 @@ export const onUpdateOrderProducts = /* GraphQL */ `
         id
         status
         price
+        userId
         products {
           nextToken
         }
@@ -219,6 +275,7 @@ export const onDeleteOrderProducts = /* GraphQL */ `
         id
         status
         price
+        userId
         products {
           nextToken
         }

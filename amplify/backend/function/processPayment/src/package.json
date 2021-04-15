@@ -8,6 +8,7 @@
     "authorizenet": "^1.0.8",
     "aws-amplify": "^2.2.2",
     "aws-sdk": "^2.619.0",
+    "lodash": "^4.17.20",
     "uuid": "^8.3.2"
   }
 }

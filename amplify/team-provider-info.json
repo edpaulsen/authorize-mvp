@@ -13,7 +13,14 @@
         },
         "categories": {
             "auth": {
-                "authorizemvp9a61d0a0": {}
+                "authorizemvp9a61d0a0": {
+                    "hostedUIProviderCreds": "[]"
+                }
+            },
+            "function": {
+                "authorizemvp9a61d0a0PostConfirmation": {
+                    "GROUP": "Admin"
+                }
             }
         }
     }

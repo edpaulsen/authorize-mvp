@@ -13,7 +13,7 @@ const secretManagerService = require("./services/secretManager.service");
 exports.handler = async (event) => {
   try {
     const { input } = event.arguments; //Fetch the input paramters;
-    const { cardInfo, amount, productIds } = input;
+    const { cardInfo, amount, productIds, userId } = input;
 
     const apiKeySecret = await secretManagerService.getSecretManager();
     const apiKey = apiKeySecret.SecretString.trim();
@@ -27,6 +27,7 @@ exports.handler = async (event) => {
         id: orderId,
         status: "SUCCESS",
         price: amount,
+        userId,
       }),
       orderService.createBulkOrderProducts(orderId, productIds),
     ]);

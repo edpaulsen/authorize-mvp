@@ -17,7 +17,26 @@ type Mutation {
     cardInfo: CardInfoInput!
     amount: String!
     productIds: [String!]!
+    userId: String!
   ): String @function(name: "processPayment-${env}")
+}
+
+type User
+  @model
+  @auth(
+    rules: [
+      {
+        allow: public
+        provider: apiKey
+        operations: [read, create, update, delete]
+      }
+      { allow: private, operations: [create, read, update, delete] }
+      { allow: public, provider: iam, operations: [read] }
+    ]
+  ) {
+  id: ID!
+  email: String
+  orders: [Order] @connection(keyName: "byUserId", fields: ["id"])
 }
 
 type Products
@@ -43,6 +62,7 @@ type Products
 
 type Order
   @model
+  @key(name: "byUserId", fields: ["userId"], queryField: "orderByUserId")
   @auth(
     rules: [
       {
@@ -57,6 +77,7 @@ type Order
   id: ID!
   status: OrderStatusEnum
   price: Float
+  userId: ID!
   products: [OrderProducts] @connection(keyName: "byOrder", fields: ["id"])
 }
 

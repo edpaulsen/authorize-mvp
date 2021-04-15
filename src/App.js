@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 import Amplify from "aws-amplify";
-import awsConfig from "./aws-exports";
+import awsConfig from "./custom-aws-exports";
 import Routes from "./containers/Routes/Routes";
 import NavbarContainer from "./containers/Navbar/Navbar";
 import { IconContext } from "react-icons";
