@@ -1,0 +1,13 @@
+.hero-image {
+  height: 440px;
+  object-fit: cover;
+  object-position: 50% 50%;
+  background-color: lightgray;
+  margin-bottom: 50px;
+}
+
+.video-wrapper {
+  height: 500px;
+  margin-top: 70px;
+  margin-bottom: 130px;
+}

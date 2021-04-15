@@ -1,0 +1,111 @@
+:root {
+  --primary-color: rgb(41, 84, 154);
+  --primary-color-low-opacity: rgb(41, 84, 154, 0.3);
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+#site-root {
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mt-30 {
+  margin-top: 30px;
+}
+
+.mt-40 {
+  margin-top: 40px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mb-40 {
+  margin-bottom: 40px;
+}
+
+.mb-100 {
+  margin-bottom: 100px;
+}
+
+.mt-100 {
+  margin-top: 100px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mt-2 {
+  margin-top: 2px;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.fs-40 {
+  font-size: 40px;
+}
+
+.fs-72 {
+  font-size: 72px;
+}
+
+.pt-20 {
+  padding-top: 20px;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-space-between {
+  justify-content: space-between;
+}
+
+.icons {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+h1,
+h4,
+h3,
+p {
+  color: var(--primary-color);
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+}

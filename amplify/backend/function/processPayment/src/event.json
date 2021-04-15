@@ -1,0 +1,13 @@
+{
+  "arguments": {
+    "input": {
+      "cardInfo": {
+        "cc": "4242424242424242",
+        "cvv": "999",
+        "expire": "0822"
+      },
+      "amount": 100,
+      "productIds":["e37569e9-1d95-4dde-9983-e1ba1fe35416", "912863e9-dd43-49c7-a7e6-706f2a512997"]
+    }
+  }
+}

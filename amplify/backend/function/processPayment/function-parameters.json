@@ -1,0 +1,12 @@
+{
+    "permissions": {
+        "api": {
+            "authorizemvp": [
+                "create",
+                "read",
+                "update",
+                "delete"
+            ]
+        }
+    }
+}

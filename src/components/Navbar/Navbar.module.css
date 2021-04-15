@@ -1,0 +1,49 @@
+.container {
+  width: 100%;
+}
+
+.container img {
+  object-fit: contain;
+  object-position: center center;
+  margin-bottom: 20px;
+}
+
+.horizontal-separator {
+  height: 1px;
+  width: 100%;
+  background-color: var(--primary-color);
+}
+
+.nav-links {
+  flex: 1;
+  justify-content: center;
+  padding-left: 75px;
+}
+
+.nav-links a {
+  margin-right: 10px;
+  text-align: center;
+}
+
+.right-nav-links {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.right-nav-links a {
+  margin-right: 10px;
+}
+
+.right-nav-links span {
+  position: absolute;
+  border-radius: 50px;
+  color: white;
+  width: 15px;
+  height: 15px;
+  background-color: var(--primary-color);
+  text-align: center;
+  font-size: 11px;
+  right: -10px;
+  bottom: 20px;
+}
