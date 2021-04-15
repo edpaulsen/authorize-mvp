@@ -5,7 +5,6 @@
 	REGION
 Amplify Params - DO NOT EDIT */
 
-const AWS = require("aws-sdk");
 const APIService = require("./services/api.service");
 const secretManagerService = require("./services/secretmanager.service");
 

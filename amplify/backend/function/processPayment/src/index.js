@@ -12,7 +12,7 @@ const secretManagerService = require("./services/secretManager.service");
 
 exports.handler = async (event) => {
   try {
-    const { input } = event.arguments; //Fetch the input paramters;
+    const { arguments:input } = event; //Fetch the input paramters;
     const { cardInfo, amount, productIds, userId } = input;
 
     const apiKeySecret = await secretManagerService.getSecretManager();

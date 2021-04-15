@@ -17,6 +17,7 @@ export const processOrderPayment = async (
       amount,
       productIds,
       userId,
-    }
+    },
+    ""
   );
 };

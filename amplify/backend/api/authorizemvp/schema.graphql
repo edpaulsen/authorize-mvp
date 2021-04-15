@@ -3,7 +3,7 @@ type S3Object {
   region: String
   key: String
   localUri: String
-  mimeType: String
+  mimeType: String 
 }
 
 input CardInfoInput {

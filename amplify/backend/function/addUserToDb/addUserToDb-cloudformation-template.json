@@ -82,7 +82,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-authorizemvp-dev-121345-deployment",
-					"S3Key": "amplify-builds/addUserToDb-3878713246386c417761-build.zip"
+					"S3Key": "amplify-builds/addUserToDb-42427355596e68595748-build.zip"
 				}
 			}
 		},

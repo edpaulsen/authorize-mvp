@@ -1,11 +1,11 @@
 import { API, graphqlOperation } from "aws-amplify";
 
-export const execute = async ({ statement, name }, variables) => {
+export const execute = async ({ statement, name }, variables,authMode = "AWS_IAM") => {
   try {
     const operation = graphqlOperation(statement, variables);
     const { data } = await API.graphql({
       ...operation,
-      authMode: "AWS_IAM",
+      authMode: authMode ? "AWS_IAM" : '',
     });
     return data[name];
   } catch (err) {

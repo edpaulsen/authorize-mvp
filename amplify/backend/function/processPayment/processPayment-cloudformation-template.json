@@ -82,7 +82,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-authorizemvp-dev-121345-deployment",
-					"S3Key": "amplify-builds/processPayment-425535596d6b30424573-build.zip"
+					"S3Key": "amplify-builds/processPayment-504a6b32566962365762-build.zip"
 				}
 			}
 		},
@@ -190,7 +190,7 @@
 							],
 							"Resource": {
 								"Fn::Sub": [
-									"arn:aws:secretsmanager:${region}:${account}:secret:AX73_API_KEY_${env}-??????",
+									"arn:aws:secretsmanager:${region}:${account}:secret:AUTHORIZE_MVP_API_KEY_${env}-??????",
 									{
 										"region": {
 											"Ref": "AWS::Region"

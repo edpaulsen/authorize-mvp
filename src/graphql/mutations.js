@@ -6,11 +6,13 @@ export const processPayment = /* GraphQL */ `
     $cardInfo: CardInfoInput!
     $amount: String!
     $productIds: [String!]!
+    $userId: String!
   ) {
     processPayment(
       cardInfo: $cardInfo
       amount: $amount
       productIds: $productIds
+      userId: $userId
     )
   }
 `;
