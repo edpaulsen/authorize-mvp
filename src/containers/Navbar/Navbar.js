@@ -21,6 +21,7 @@ const NavbarContainer = ({ children, history }) => {
     authContext.logOut();
   };
 
+
   return (
     <React.Fragment>
       <div className="mt-40 mb-100">

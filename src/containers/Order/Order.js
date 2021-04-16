@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { withRouter } from "react-router";
 import CartList from "../../components/CartList/CartList";
 import OrderSummary from "../../components/OrderSummary/OrderSummary";
@@ -6,10 +6,12 @@ import { CartContext } from "../../context/Cart/CartContext";
 import { AuthContext } from "../../context/Auth/AuthContext";
 import { processOrderPayment } from "./Order.service";
 import { showToast } from "../../utils/common";
+import{ ROUTE_HOME} from '../../utils/constants';
 
-const OrderContainer = () => {
+const OrderContainer = ({history}) => {
   const cartContext = useContext(CartContext);
   const authContext = useContext(AuthContext);
+  const [checkoutButtonDisabled,setCheckoutButtonDisabled] = useState(false);
 
   const removeFromCartHandler = (productId) => {
     cartContext.removeFromCart(productId);
@@ -23,6 +25,7 @@ const OrderContainer = () => {
     if (authContext.checkAuthentication()) {
       if (cartContext.totalPrice) {
         try {
+          setCheckoutButtonDisabled(true);
           showToast("Placing Order...");
           const cardInfo = {
             cc: "4242424242424242",
@@ -38,8 +41,11 @@ const OrderContainer = () => {
             userId
           );
           showToast("Order placed succesfully.");
+          cartContext.emptyCart();
+          history.push(ROUTE_HOME);
         } catch (error) {
           showToast("Error in placing order.");
+          setCheckoutButtonDisabled(false);
         }
       }
     } else {
@@ -55,6 +61,7 @@ const OrderContainer = () => {
         updateCardQuantity={updateCardQuantity}
       />
       <OrderSummary
+      checkoutButtonDisabled={checkoutButtonDisabled}
         totalPrice={cartContext.totalPrice}
         checkoutHandler={checkoutHandler}
       />

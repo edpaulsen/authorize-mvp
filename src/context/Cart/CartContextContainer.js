@@ -51,6 +51,10 @@ const CartContextContainer = ({ children }) => {
     return 0;
   };
 
+  const emptyCart = () => {
+    setCart([]);
+  }
+
   return (
     <CartContextProvider
       value={{
@@ -59,6 +63,7 @@ const CartContextContainer = ({ children }) => {
         addItemToCart,
         getQuantityOfProduct,
         removeFromCart,
+        emptyCart
       }}
     >
       {children}

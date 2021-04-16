@@ -38,8 +38,10 @@ button {
 
 .right-nav-links button {
   border: none;
-  color: var(--primary-color);
-  background-color: white;
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+  background-color:var(--primary-color);
   cursor: pointer;
   outline: none;
 }

@@ -4,4 +4,5 @@ export const cartDefaultInterface = {
   getQuantityOfProduct: (product) => {},
   addItemToCart: (product, quantity) => {},
   removeFromCart: (productId) => {},
+  emptyCart:() => {}
 };

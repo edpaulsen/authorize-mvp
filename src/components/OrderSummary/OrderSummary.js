@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./OrderSummary.module.css";
 
-const OrderSummary = ({ totalPrice, checkoutHandler }) => {
+const OrderSummary = ({ totalPrice, checkoutHandler,checkoutButtonDisabled }) => {
   return (
     <div className={`${styles["container"]}`}>
       <h4>Order Summary</h4>
@@ -23,6 +23,7 @@ const OrderSummary = ({ totalPrice, checkoutHandler }) => {
         <div>
           <button
             className={`mt-30 cursor-pointer ${styles["checkout-button"]}`}
+            disabled={checkoutButtonDisabled}
             onClick={checkoutHandler}
           >
             Checkout

@@ -12,6 +12,7 @@ const AuthContextContainer = ({ children }) => {
         setUser(getCurrentUser());
       } catch (error) {
         console.log("error in fetching user");
+        setUser({});
       }
     };
     Hub.listen("auth", ({ payload }) => {
@@ -20,7 +21,7 @@ const AuthContextContainer = ({ children }) => {
           fetchUser();
           break;
         case "signOut":
-          setUser({});
+          fetchUser();
           break;
         default:
           break;
