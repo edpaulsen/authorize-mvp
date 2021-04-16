@@ -1,9 +1,12 @@
-const { loginId, transactionKey } = require("../utils/constants");
 const ApiContracts = require("authorizenet").APIContracts;
 const ApiControllers = require("authorizenet").APIControllers;
 
 module.exports.processPayment = (cardInfo, amount) => {
   return new Promise((resolve, reject) => {
+
+    const loginId = process.env.LOGIN_ID;
+    const transactionKey = process.env.TRANSACTION_KEY;
+
     const { cc, cvv, expire } = cardInfo;
 
     const merchantAuthenticationType = new ApiContracts.MerchantAuthenticationType();

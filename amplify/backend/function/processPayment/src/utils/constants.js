@@ -1,5 +1,5 @@
-const LOGIN_ID = "5C3cQ5B4uz";
-const TRANSACTION_KEY = "47y92g6QZ993KBkM";
+const LOGIN_ID = "";
+const TRANSACTION_KEY = "";
 
 module.exports = {
   loginId: LOGIN_ID,

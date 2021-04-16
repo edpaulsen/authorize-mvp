@@ -82,7 +82,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-authorizemvp-dev-121345-deployment",
-					"S3Key": "amplify-builds/processPayment-504a6b32566962365762-build.zip"
+					"S3Key": "amplify-builds/processPayment-65536c454749595a412b-build.zip"
 				}
 			}
 		},
