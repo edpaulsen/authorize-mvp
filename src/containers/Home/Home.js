@@ -10,7 +10,7 @@ const HomeContainer = () => {
     <React.Fragment>
       <img
         src={childImage}
-        alt="child here"
+        alt="please work"
         className={`${styles["hero-image"]}`}
       />
       <HomeProducts>

@@ -1,33 +1,36 @@
 {
-    "dev": {
-        "awscloudformation": {
-            "AuthRoleName": "amplify-authorizemvp-dev-121345-authRole",
-            "UnauthRoleArn": "arn:aws:iam::154221695405:role/amplify-authorizemvp-dev-121345-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::154221695405:role/amplify-authorizemvp-dev-121345-authRole",
-            "Region": "us-east-2",
-            "DeploymentBucketName": "amplify-authorizemvp-dev-121345-deployment",
-            "UnauthRoleName": "amplify-authorizemvp-dev-121345-unauthRole",
-            "StackName": "amplify-authorizemvp-dev-121345",
-            "StackId": "arn:aws:cloudformation:us-east-2:154221695405:stack/amplify-authorizemvp-dev-121345/cc7eed20-9c27-11eb-83c5-02f0ac472f00",
-            "AmplifyAppId": "d9aqezx948np6"
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-authorizemvp-dev-121345-authRole",
+      "UnauthRoleArn": "arn:aws:iam::154221695405:role/amplify-authorizemvp-dev-121345-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::154221695405:role/amplify-authorizemvp-dev-121345-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-authorizemvp-dev-121345-deployment",
+      "UnauthRoleName": "amplify-authorizemvp-dev-121345-unauthRole",
+      "StackName": "amplify-authorizemvp-dev-121345",
+      "StackId": "arn:aws:cloudformation:us-east-2:154221695405:stack/amplify-authorizemvp-dev-121345/cc7eed20-9c27-11eb-83c5-02f0ac472f00",
+      "AmplifyAppId": "d9aqezx948np6"
+    },
+    "categories": {
+      "auth": {
+        "authorizemvp9a61d0a0": {
+          "hostedUIProviderCreds": "[]"
         },
-        "categories": {
-            "auth": {
-                "authorizemvp9a61d0a0": {
-                    "hostedUIProviderCreds": "[]"
-                }
-            },
-            "function": {
-                "authorizemvp9a61d0a0PostConfirmation": {
-                    "GROUP": "Admin"
-                }
-            },
-            "hosting": {
-                "amplifyhosting": {
-                    "appId": "d9aqezx948np6",
-                    "type": "manual"
-                }
-            }
+        "userPoolGroups": {}
+      },
+      "function": {
+        "authorizemvp9a61d0a0PostConfirmation": {
+          "GROUP": "Admin"
+        },
+        "processPayment": {},
+        "addUserToDb": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d9aqezx948np6",
+          "type": "manual"
         }
+      }
     }
+  }
 }
